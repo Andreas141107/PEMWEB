@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas Pemrograman Web - Form Pendaftaran HIMATIK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eeeeee;
+            padding: 20px;
+        }
+        .box-tugas {
+            background-color: white;
+            width: 700px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        /* Style Tabel Utama biar Rapi */
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 8px;
+        }
+        /* Style untuk Canvas */
+        #garis-tanda-tangan {
+            border: 1px solid #000;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box-tugas">
+    <center>
+        <svg width="50" height="50">
+            <circle cx="25" cy="25" r="20" stroke="blue" stroke-width="3" fill="yellow" />
+            <text x="12" y="30" fill="blue" font-weight="bold">TIK</text>
+        </svg>
+        <h2>FORM PENDAFTARAN ANGGOTA HIMATIK</h2>
+        <hr>
+    </center>
+
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td width="30%">Nama Lengkap</td>
+                <td>: <input type="text" name="nama" size="30" placeholder="Masukkan nama..."></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>: <input type="email" name="email" size="30"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td>: 
+                    <input type="radio" name="jk" value="L"> Laki-laki
+                    <input type="radio" name="jk" value="P"> Perempuan
+                </td>
+            </tr>
+            <tr>
+                <td>Program Studi</td>
+                <td>: 
+                    <select name="prodi">
+                        <option value="TI">Teknik Informatika</option>
+                        <option value="TMJ">Teknik Multimedia Jaringan</option>
+                        <option value="TMD">Teknik Multimedia Digital</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Hobi / Minat</td>
+                <td>: 
+                    <input type="checkbox" name="hobi1"> Coding
+                    <input type="checkbox" name="hobi2"> Design
+                    <input type="checkbox" name="hobi3"> Networking
+                </td>
+            </tr>
+            <tr>
+                <td>Alamat Lengkap</td>
+                <td>: <textarea name="alamat" cols="30" rows="3"></textarea></td>
+            </tr>
+            
+            <tr>
+                <td>Tanda Tangan digital</td>
+                <td>
+                    <canvas id="garis-tanda-tangan" width="200" height="80"></canvas>
+                    <br><small>(Gunakan Mouse untuk tanda tangan)</small>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="SIMPAN DATA">
+                    <input type="reset" value="BATAL">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script>
+    var canvas = document.getElementById("garis-tanda-tangan");
+    var ctx = canvas.getContext("2d");
+    var drawing = false;
+
+    canvas.addEventListener("mousedown", function() { drawing = true; });
+    canvas.addEventListener("mouseup", function() { drawing = false; ctx.beginPath(); });
+    canvas.addEventListener("mousemove", draw);
+
+    function draw(event) {
+        if (!drawing) return;
+        var rect = canvas.getBoundingClientRect();
+        ctx.lineWidth = 2;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "black";
+
+        ctx.lineTo(event.clientX - rect.left, event.clientY - rect.top);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(event.clientX - rect.left, event.clientY - rect.top);
+    }
+</script>
+
+</body>
+</html>
