@@ -1,0 +1,34 @@
+/* Styling buat Flexbox */
+.wadah-flex {
+    display: flex;
+    justify-content: center;
+}
+
+/* Styling buat Grid */
+.wadah-grid {
+    display: grid;
+    grid-template-columns: auto auto; /* 2 kolom aja biar simpel */
+    gap: 10px;
+    padding: 10px;
+}
+
+.isi-grid {
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+
+/* CSS Advanced: Hover Effect */
+.link-edit:hover {
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+/* Link Styling Biasa */
+.link-edit {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Latihan 6 CSS</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* CSS Tutorial 1: Body Background */
+        body {
+            background-color: lightgrey;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+        }
+
+        /* CSS Tutorial 2: Text Align */
+        h2 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        /* CSS Advanced 1: Box Shadow (Simpel) */
+        .kotak-tugas {
+            background-color: white;
+            padding: 15px;
+            margin: 10px;
+            box-shadow: 5px 5px 10px gray;
+            border-radius: 8px;
+        }
+
+        /* Responsive: Kalau dibuka di HP (Min 1) */
+        @media screen and (max-width: 600px) {
+            .wadah-grid {
+                display: block; /* Jadi tumpuk ke bawah kalau di HP */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="background-color: yellow; padding: 10px; border: 2px solid black; text-align: center;">
+        <h1 style="color: red; font-style: italic;">Latihan CSS Mahasiswa PNJ</h1>
+    </div>
+
+    <main>
+        <div class="wadah-flex">
+            <div class="kotak-tugas">
+                <h3>CSS Tutorial 4: Border</h3>
+                <p style="border: 1px solid green; padding: 5px;">Ini contoh border tutorial.</p>
+            </div>
+            <div class="kotak-tugas">
+                <h3>CSS Tutorial 5: Link</h3>
+                <a href="#" class="link-edit">Klik Link Ini</a>
+            </div>
+        </div>
+
+        <h2>Contoh Grid Layout</h2>
+        <div class="wadah-grid">
+            <div class="isi-grid">Grid 1</div>
+            <div class="isi-grid">Grid 2</div>
+            <div class="isi-grid">Grid 3</div>
+            <div class="isi-grid">Grid 4</div>
+        </div>
+    </main>
+
+    <footer style="margin-top: 50px; text-align: center;">
+        <p>&copy; 2026 - Tugas Web Dasar</p>
+    </footer>
+
+</body>
+</html>
